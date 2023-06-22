@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { API } from "../services/Api";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 export default function Cadastro() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState(null);
   const [password, setPasword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const navigate = useNavigate()
 
   async function autenticar(evento) {
     try {
@@ -22,7 +21,7 @@ export default function Cadastro() {
 
       const response = await API.post("/users", dados);
 
-      navigate("/")
+      window.location.href = "/"
 
     } catch (error) {
       console.log(error.response.status);
