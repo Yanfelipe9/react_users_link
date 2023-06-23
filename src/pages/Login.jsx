@@ -16,6 +16,8 @@ function Login() {
       const response = await API.post("/auth/login", dados)
       console.log(response.data.user)
       localStorage.setItem("logado", true);
+      localStorage.setItem("name", response.data.user.name);
+      localStorage.setItem("id", response.data.user.id);
 
       setName(response.data.user);
 
