@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CardUser from "../components/CardUser";
 import Loading from "../components/Loading/loading";
 import { Link } from "react-router-dom";
+import CardOtherUser from "../components/CardOtherUser";
 
 export default function UserPerfil() {
   const { id } = useParams();
@@ -21,7 +22,7 @@ export default function UserPerfil() {
     try {
       setLoading(true);
       await API.get(`users/${id}`).then((res) => setUser(res.data));
-      API.get(`users/${id}/links`).then((res)=> console.log(res.data))
+      API.get(`users/${id}/links`).then((res) => console.log(res.data));
     } catch (error) {
       alert("Error");
     } finally {
@@ -29,10 +30,10 @@ export default function UserPerfil() {
     }
   }
 
-  return loading ? <>{Loading()}</> : (
-  
-
-  <div>
+  return loading ? (
+    <Loading />
+  ) : id === localStorage.getItem("id") ? (
+    <div>
       <div className="flex justify-center items-center py-3 text-3xl flex-col font-extralight">
         <h1 className="text-4xl ">
           Olá{" "}
@@ -42,11 +43,17 @@ export default function UserPerfil() {
             </Link>
           </span>
         </h1>
-        <h2 className="text-2xl">Bem vindo(a) ao <span className="tracking-wider">seu perfil</span></h2>
+        <h2 className="text-2xl">Bem vindo(a) ao seu perfil</h2>
       </div>
-      <section>
-      <CardUser user={user}></CardUser>
+      <section className="sm:mx-32 mx-3">
+        <CardUser user={user}></CardUser>
       </section>
     </div>
-  )
+  ) : (
+    <>
+      <section className="sm:mx-32 mx-3">
+        <CardOtherUser user={user}></CardOtherUser>
+      </section>
+    </>
+  );
 }
