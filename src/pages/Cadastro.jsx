@@ -29,8 +29,8 @@ export default function Cadastro() {
   }
 
   return (
-    <div className="z-10 fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center flex-col py-10">
-      <div className="bg-indigo-600 fixed flex px-20 py-10 flex-col rounded-xl">
+    <div className="z-10 fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center flex-col py-10 ">
+      
         <div>
           <h2 className="text-center text-3xl font-bold leading-9 text-gray-900">
             Cadastre-se aqui
@@ -58,7 +58,7 @@ export default function Cadastro() {
                   required
                   placeholder="Insira o nome do usuário..."
                   onChange={(evento) => setName(evento.target.value)}
-                  className="block w-full rounded-md pl-1 py-1.5 text-gray-900 ring-inset  placeholder:text-gray-400  sm:text-sm "
+                  className="block w-full rounded-md border-0 pl-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 "
                 />
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function Cadastro() {
                   required
                   placeholder="Digite seu email válido..."
                   onChange={(evento) => setEmail(evento.target.value)}
-                  className="block w-full rounded-md pl-1 py-1.5 text-gray-900 ring-inset  placeholder:text-gray-400  sm:text-sm "
+                  className="block w-full rounded-md border-0 pl-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 "
                 />
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function Cadastro() {
                   required
                   placeholder="Insira sua senha..."
                   onChange={(evento) => setPasword(evento.target.value)}
-                  className="block w-full rounded-md border-0 pl-1 py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 pl-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                 />
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function Cadastro() {
                   required
                   placeholder="Confirme sua senha..."
                   onChange={(evento) => setConfirmPassword(evento.target.value)}
-                  className="block w-full rounded-md border-0 pl-1 py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 pl-2.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                 />
               </div>
             </div>
@@ -130,7 +130,7 @@ export default function Cadastro() {
               <button
                 onClick={autenticar}
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-black text-white p-3 text-xl font-normal hover:bg-indigo-900 "
+                className="flex w-full justify-center rounded-md bg-indigo-600 text-white p-3 text-xl font-normal hover:bg-indigo-500 "
               >
                 Cadastre-se
               </button>
@@ -142,8 +142,7 @@ export default function Cadastro() {
           >
             x
           </Link>
-        </div>
-      </div>
+        </div>      
     </div>
   );
 }

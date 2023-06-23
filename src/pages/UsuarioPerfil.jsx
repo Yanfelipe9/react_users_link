@@ -44,7 +44,7 @@ export default function UserPerfil() {
         </h1>
         <h2 className="text-2xl">Bem vindo(a) ao <span className="tracking-wider">seu perfil</span></h2>
       </div>
-      <section>
+      <section className="sm:mx-32 mx-3">
       <CardUser user={user}></CardUser>
       </section>
     </div>
