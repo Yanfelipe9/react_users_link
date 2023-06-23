@@ -5,20 +5,28 @@ function Card({ user, children }) {
   return (
     <>
       {user ? (
-        <div className="flex md:basis-1/4 sm:basis-2/6 basis-3/6 flex-row items-center justify-center bg-slate-300 rounded-2xl">
-          <div className="flex flex-col p-10 items-center ">
-            <img
-              className="h-20 w-20 rounded-full"
-              src={user.gravatarUrl}
-              alt=""
-            />
-            <Link to={`/users/${user.id}`}>
-              <h1 className="text-lg hover:scale-110 active:scale-100 text-center font-semibold leading-7 tracking-tight text-gray-900">
-                {user.name}
-              </h1>
-            </Link>
-          </div>
-        </div>
+        <>
+              <li className="flex justify-start py-5">
+                <div className="flex gap-x-4 pr-3">
+                  <img
+                    className="h-12 w-12 flex-none rounded-full bg-gray-50"
+                    src={user.gravatarUrl}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Link to={`/users/${user.id}`}>
+                    <p className="text-sm font-semibold leading-6 text-gray-900 hover:scale-105 active:scale-100">
+                      {user.name}
+                    </p>
+                  </Link>
+                  <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                    {user.email}
+                  </p>
+                </div>
+              </li>
+            <hr className="border-slate-300"/>
+          </>
       ) : (
         <>Sem usuário</>
       )}
